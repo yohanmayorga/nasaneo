@@ -1,0 +1,14 @@
+.body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #28334f;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 15vh;
+  height: auto;
+}
