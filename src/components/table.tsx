@@ -5,7 +5,6 @@ import logo from "@/../../public/assets/logo.png";
 
 export default async function Table() {
   const list = await getNeo();
-
   const renderData = (object: any) => {
     const allData: any[] = [];
     for (const key in object) {
