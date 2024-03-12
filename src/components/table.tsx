@@ -1,5 +1,7 @@
 import { getNeo } from "@/lib/Nasa";
 import styles from "@/styles/Table.module.css";
+import Image from "next/image";
+import logo from "@/../../public/assets/logo.png";
 
 export default async function Table() {
   const list = await getNeo();
@@ -18,46 +20,49 @@ export default async function Table() {
     }
     return (
       <div className={styles.body}>
-        <div className={styles.column}>
-          <div className={styles.header}>Name</div>
+        <Image src={logo} alt="logo" className={styles.logo} priority />
+        <div className={styles.table}>
+          <div className={styles.column}>
+            <div className={styles.header}>Name</div>
 
-          {allData.map((item) => (
-            <li key={item.name} className={styles.itemList}>
-              {item.name}
-            </li>
-          ))}
-        </div>
+            {allData.map((item) => (
+              <li key={item.name} className={styles.itemList}>
+                {item.name}
+              </li>
+            ))}
+          </div>
 
-        <div className={styles.column}>
-          <div className={styles.header}>Date</div>
+          <div className={styles.column}>
+            <div className={styles.header}>Date</div>
 
-          {allData.map((item) => (
-            <li key={item.name} className={styles.itemList}>
-              {new Date(item.key).toLocaleDateString("es-ES", {
-                timeZone: "UTC",
-              })}
-            </li>
-          ))}
-        </div>
+            {allData.map((item) => (
+              <li key={item.name} className={styles.itemList}>
+                {new Date(item.key).toLocaleDateString("es-ES", {
+                  timeZone: "UTC",
+                })}
+              </li>
+            ))}
+          </div>
 
-        <div className={styles.column}>
-          <div className={styles.header}>Magnitude</div>
+          <div className={styles.column}>
+            <div className={styles.header}>Magnitude</div>
 
-          {allData.map((item) => (
-            <li key={item.name} className={styles.itemList}>
-              {item.magnitude}
-            </li>
-          ))}
-        </div>
+            {allData.map((item) => (
+              <li key={item.name} className={styles.itemList}>
+                {item.magnitude}
+              </li>
+            ))}
+          </div>
 
-        <div className={styles.column}>
-          <div className={styles.header}>Danger</div>
+          <div className={styles.column}>
+            <div className={styles.header}>Danger</div>
 
-          {allData.map((item) => (
-            <li key={item.name} className={styles.itemList}>
-              {item.danger ? "Yes" : "No"}
-            </li>
-          ))}
+            {allData.map((item) => (
+              <li key={item.name} className={styles.itemList}>
+                {item.danger ? "Yes" : "No"}
+              </li>
+            ))}
+          </div>
         </div>
       </div>
     );
