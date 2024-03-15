@@ -1,7 +1,5 @@
 import { getNeo } from "@/lib/Nasa";
 import styles from "@/styles/Table.module.css";
-import Image from "next/image";
-import logo from "@/../../public/assets/logo.png";
 
 export default async function Table() {
   const list = await getNeo();
@@ -19,7 +17,6 @@ export default async function Table() {
     }
     return (
       <div className={styles.body}>
-        <Image src={logo} alt="logo" className={styles.logo} priority />
         <div className={styles.table}>
           <div className={styles.column}>
             <div className={styles.header}>Name</div>
